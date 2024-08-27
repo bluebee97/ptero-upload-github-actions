@@ -1,0 +1,45 @@
+name: "Upload files to Pterodactyl"
+description: "This GitHub Action allows you to upload files to multiple Pterodactyl servers with just one action, featuring socket support."
+inputs:
+  panel-host: # id of input
+    description: "The host of the pterodactyl instance"
+    required: true
+  api-key:
+    description: "The client api key of the pterodactyl instance"
+    required: true
+  server-id:
+    description: "The server id of the server"
+    required: false
+  server-ids:
+    description: "The server ids of the servers"
+    required: false
+  source:
+    description: "The source to upload"
+    required: false
+  sources:
+    description: "The sources to upload"
+    required: false
+  target:
+    description: "The target where the files should be uploaded on the servers"
+    required: false
+  restart:
+    description: "Restart the servers after the upload"
+    required: false
+    default: false
+  proxy:
+    description: "The proxy to use"
+    required: false
+  decompress-target:
+    description: "Decompress archive file after upload in target"
+    required: false
+    default: false
+  follow-symbolic-links:
+    description: "Indicates whether to follow symbolic links"
+    default: true
+runs:
+  using: "node20"
+  main: "dist/index.js"
+
+branding:
+  icon: "server"
+  color: "blue"
